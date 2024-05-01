@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
@@ -76,23 +76,23 @@ namespace CSharpLab8
 
     class Presenter
     {
-        private IView view;
-        private Model model;
+        private IView _view;
+        private Model _model;
 
 
         public Presenter(IView inputView)
         {
-            view = inputView;
-            model = new Model();
+            _view = inputView;
+            _model = new Model();
 
-            view.SyncronizeDirectoriesEvent += new EventHandler<EventArgs>(Synchronize);
+            _view.SyncronizeDirectoriesEvent += new EventHandler<EventArgs>(Synchronize);
         }
 
         private void Synchronize(object sender, EventArgs inputEvent)
         {
-            List<string> resultOfSynchronization = model.SynchronizeDirectories(view.SourceDirectory(), view.TargetDirectory());
+            List<string> resultOfSynchronization = _model.SynchronizeDirectories(_view.SourceDirectory(), _view.TargetDirectory());
 
-            view.TryToSynchronize(resultOfSynchronization);
+            _view.TryToSynchronize(resultOfSynchronization);
         }
     }
     internal static class Program
