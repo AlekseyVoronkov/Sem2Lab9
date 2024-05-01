@@ -22,8 +22,15 @@ namespace CSharpLab8
         }
 
         public event EventHandler<EventArgs> SyncronizeDirectoriesEvent;
-        string IView.SourceDirectory() { return sourceDirectoryTextBox.Text; }
-        string IView.TargetDirectory() { return targetDirectoryTextBox.Text; }
+        string IView.SourceDirectory() 
+        {
+            return sourceDirectoryTextBox.Text; 
+        }
+        
+        string IView.TargetDirectory() 
+        {
+            return targetDirectoryTextBox.Text;
+        }
 
         void IView.TryToSynchronize(List<string> message)
         {
